@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-// import SigninButton from "./SigninButton";
+import SigninButton from "./SigninButton";
 
 const AppBar = () => {
   return (
@@ -14,8 +14,8 @@ const AppBar = () => {
       >
         User Post Page
       </Link>
-      {/* <SigninButton /> */}
-      <button>Sign In</button>
+      <SigninButton />
+      {/* <button>Sign In</button> */}
     </header>
   );
 };
