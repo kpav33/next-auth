@@ -7,7 +7,7 @@ import React from "react";
 // https://www.youtube.com/watch?v=hADeo48SATU => Custom login page example
 const SigninButton = () => {
   const { data: session } = useSession();
-  //   console.log(session?.user);
+  // console.log(session?.user);
 
   if (session && session.user) {
     return (

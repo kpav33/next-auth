@@ -65,17 +65,19 @@ const handler = NextAuth({
   // session: {
   //   strategy: "jwt"
   // }
-  //   callbacks: {
-  //     async jwt({ token, user }) {
-  //       return { ...token, ...user };
-  //     },
+  // Add id and access token to the user object inside of session, that we get from useSession next-auth hook
+  // This is how we can store the jwt access token inside the next-auth session and use it later on for verification on api routes
+  callbacks: {
+    async jwt({ token, user }) {
+      return { ...token, ...user };
+    },
 
-  //     // inside session we can keep the authenticated user object
-  //     async session({ session, token }) {
-  //       session.user = token as any;
-  //       return session;
-  //     },
-  //   },
+    // inside session we can keep the authenticated user object
+    async session({ session, token }) {
+      session.user = token as any;
+      return session;
+    },
+  },
 });
 
 // With this we can have next-auth api handler inside the app directory, so every GET and POST request to this api route will be handled by next-auth
